@@ -1,0 +1,5 @@
+interface:
+  display_name: "Wayfinder (Beads)"
+  short_description: "Map a large effort as decision tickets on beads (bd)"
+policy:
+  allow_implicit_invocation: false

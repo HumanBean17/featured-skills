@@ -29,9 +29,9 @@ While reading, stay quiet about substance — findings, summaries, analysis all 
 
 ## Your structure, not the document's
 
-The walkthrough's order is yours, not the document's. Documents are written for many purposes — to persuade, to record, to bind, to survive committee — and their order reflects how they were written, not how they should be read. A reader needs the opposite ladder: what this is and why it exists before how it works; the deal before the clauses; architecture before implementation notes; the common case before the edge cases; foundations before whatever is built on them. Never explain a detail that depends on something not yet shown.
+The walkthrough's order is yours, not the document's. Documents are written for many purposes — to persuade, to record, to bind, to survive committee — and their order reflects how they were written, not how they should be read. A reader needs the opposite ladder: what this is and why it exists before how it works; the deal before the clauses; architecture before implementation notes; the common case before the edge cases; foundations before whatever is built on them. Never explain a detail that depends on something not yet shown. The ladder runs on altitude, not partition: the first section describes the whole subject at low resolution — the map — and each section after it descends a level, taking in more of the detail.
 
-Rebuilding the order means: pull the purpose to the top; gather what the document scatters (three sections touching the same mechanism become one); defer rabbit holes to late sections. If the document's own order already climbs from common to details, keep it — rebuilding for its own sake only obscures.
+Build sections from the reader's questions — why does this exist? what is it? how does it work? what happens at the edges? — and let each pull its material from wherever it lives in the source. The tell of a failed structure is a section whose signposts all point into one region of the document: "pages 4–6" or "§2 as written" is a slice of the document, not a level of the subject — a reading plan wearing a structure's clothes. Rebuilding means: pull the purpose to the top; gather what the document scatters (three sections touching the same mechanism become one); defer rabbit holes to late sections. The document's own order is a hypothesis, not a default: keep it only if it survives the reader's ladder — the first section still hands over the whole map.
 
 A subject of several documents is still one subject: build one structure across the set — gathering what the documents scatter between them, signposts carrying file and section both. Walk the documents one-by-one only when they're genuinely independent, and say which way you chose in the roadmap.
 
@@ -57,7 +57,7 @@ When the subject is read, present the plan before any content:
 
 - what the subject is, in one breath — kind, purpose, size (files, pages, length)
 - the boundary as detected — what's included, anything the subject leans on that isn't in the room, what was triaged rather than read, and the focus, if the ask was narrower than the subject
-- the sections: a numbered list, one line each — what each covers and where in the source it lives
+- the sections: a numbered list, one line each — the reader's question each answers, and where in the source its material lives
 - what will be skimmed, if anything
 
 Then stop and wait. The roadmap is where a bad plan gets fixed cheaply — the human may reorder, merge, or ask for more depth on what they care about. A subject that would fit inside a single section skips it: say so and deliver the walkthrough in one piece, any focus declared in a line — a roadmap for a two-paragraph document is ceremony.

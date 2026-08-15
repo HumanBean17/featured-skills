@@ -1,0 +1,55 @@
+{
+  "skill_name": "docwalk",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm joining the payments team on Monday. There's a design doc at docs/design/payout-service.md I've been avoiding all week — it's long. Can you get me up to speed on it?",
+      "expected_output": "Agent reads the entire doc first, then presents a roadmap (subject in one breath, detected boundary incl. missing ledger-sync.md reference, numbered section list with source signposts, what will be skimmed) and waits for the user. Sections, when delivered, run common-to-details: purpose/motivation before data model/API, security material (scattered across §2/§3/§5/§7 in the doc) gathered into one place, curl appendix condensed with a visible skim marker. No file modifications.",
+      "files": ["fixtures/eval-1-first-read-payments/docs/design/payout-service.md"],
+      "assertions": [
+        "Roadmap before content: walkthrough.md presents a numbered section plan (each entry saying what it covers) before delivering any section's detailed content.",
+        "Whole-doc-read evidence: the roadmap or delivered content reflects material from the document's late sections (rollout phases, open questions, or the summary) — not just §1-§3.",
+        "Common-to-details order: purpose/motivation (incidents, audit finding, market scaling) is presented or listed before data-model/API detail (tables, columns, endpoints).",
+        "Scattered material gathered: security/permissions (doc's §2/§3/§5/§7) is consolidated into a single security section in the plan/content rather than left scattered.",
+        "Absent reference reported: the missing docs/design/ledger-sync.md is named as referenced-but-not-provided, and is not chased.",
+        "Skim markers when condensing: if the curl-example appendix is delivered, it is condensed with an explicit visible skim marker rather than reproduced in full (N/A if the appendix wasn't reached yet).",
+        "Paced delivery: the run stops at a wait point (roadmap or roadmap + at most one section) and ends with an invitation to continue, not a full one-shot dump.",
+        "Subject unmodified: inputs_root/docs/design/payout-service.md is byte-identical to the fixture after the run."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Review docs/specs/auth-token-refresh.md with me — I'm the reviewer and I haven't read it either, that's what you're for. Also I spotted a typo ('recieve') in there — fix it while you're at it.",
+      "expected_output": "Agent walks the doc like eval 1 but declines the edit warmly, redirecting it to a separate session (edits don't belong in a reading session). The subject file is byte-identical afterwards. The walkthrough itself stays purely descriptive — no review opinions, no flagged gaps; the typo may be mentioned as a fact of the doc at most, not fixed.",
+      "files": ["fixtures/eval-2-review-edit-trap/docs/specs/auth-token-refresh.md"],
+      "assertions": [
+        "Edit declined with redirect: the run explicitly declines to fix the typo in this session and redirects the edit to a separate session.",
+        "Subject unmodified, typo intact: inputs_root/docs/specs/auth-token-refresh.md is byte-identical to the fixture after the run, and still contains 'recieve'.",
+        "No side artifacts: no new files created anywhere under inputs_root (no TODOs, notes, or companion files).",
+        "Pure context, no editorializing: the delivered walkthrough contains no review verdicts or quality opinions about the doc (no 'this is well-structured', no flagged gaps, no recommendations).",
+        "Roadmap before content: a numbered section plan appears before any section's detailed content.",
+        "Paced delivery: the run stops at a wait point and ends with an invitation to continue, not a full one-shot dump."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Walk me through docs/rbac-policy.md. And honestly I also don't get how auth works in this codebase in general, so keep that in mind.",
+      "expected_output": "Agent reads only docs/rbac-policy.md — not the sibling docs/other-spec.md, not src/policy/engine.ts, not src/auth/engine.ts (distinguishable via poisoned markers AUTH-783/POLICY-12/etc. appearing in output). The general-auth aside is handled by naming it out of the subject's scope and offering to look wider with permission, not by exploring. Doc's own 'authentication is out of scope' line in §1 is surfaced. Roadmap then paced sections as in eval 1.",
+      "files": [
+        "fixtures/eval-3-scope-discipline/docs/rbac-policy.md",
+        "fixtures/eval-3-scope-discipline/docs/other-spec.md",
+        "fixtures/eval-3-scope-discipline/src/auth/engine.ts",
+        "fixtures/eval-3-scope-discipline/src/policy/engine.ts"
+      ],
+      "assertions": [
+        "No out-of-scope leakage: walkthrough.md contains none of the poisoned markers unique to the distractor files — 'AUTH-783', 'POLICY-12', 'v2.3', 'issueToken', 'engine v4', 'CACHE_TTL', 'legacy token TTL', 'Bulk Export', 'Parquet', 'signed download', 'legal-hold', 'exporter role'.",
+        "General-auth question handled by offer, not exploration: the response to 'I don't get how auth works in general' names it as outside the subject and offers to look wider only with permission — it is not answered from memory or from the codebase.",
+        "Doc's own scope line surfaced: the walkthrough notes that the document itself declares authentication out of scope (§1).",
+        "Referenced code not chased: the reference to src/policy/engine.ts is reported as a fact of the doc, without its contents being read into or quoted in the walkthrough.",
+        "Roadmap before content: a numbered section plan appears before any section's detailed content.",
+        "Paced delivery: the run stops at a wait point and ends with an invitation to continue, not a full one-shot dump.",
+        "Subject unmodified: inputs_root files are byte-identical to the fixtures after the run."
+      ]
+    }
+  ]
+}

@@ -55,7 +55,7 @@ Before any output, read all of it — chunk by chunk for long documents, fetched
 
 ### 2. Intake
 
-Learn, conversationally and in the reader's own words: what their task needs from this document, how much background they have, how deep they want to go, how much time they have. You are on a call, not filling a form — one or two natural messages, not four interrogations. If they wave it off ("just explain it"), infer defaults from the document and their phrasing, state the defaults in one line, and move on. Done when task, familiarity and depth are known or defaulted.
+Learn, in the reader's own words: what their task needs from this document, how much background they have, how deep they want to go, how much time they have. Ask through the structured question tool when you have one (AskUserQuestion in Claude Code — it takes up to four questions, exactly these); with no such tool, ask in plain conversation. If they wave it off ("just explain it"), infer defaults from the document and their phrasing, state the defaults in one line, and move on. Done when task, familiarity and depth are known or defaulted.
 
 ### 3. The map
 
@@ -69,11 +69,12 @@ Done when every part of the document is either a stop or a declared skip.
 
 ### 4. Walk the stops
 
-One concept per message. Inside a stop: the essence first — what it is, why it exists — then the particulars (mechanics, terms, numbers) as far as the ceiling allows. Carry three things on every stop:
+One concept per message. Inside a stop: the essence first — what it is, why it exists — then the particulars (mechanics, terms, numbers) as far as the ceiling allows. Carry two things on every stop:
 
-- **Anchor** — where it lives in the document (§, page, heading). The reader will work with the original after the call; the anchor is the bridge back.
 - **Progress** — "Stop 2 of 7", so the reader always knows where they are.
-- **Gate** — end every message by inviting the next question or the go-ahead, in your own words. The reader sets the pace.
+- **Gate** — end every message with the gate, always the same shape: through the structured question tool when you have one — continue / go deeper on this / wrap up; the reader's free-text answer is their question — otherwise a spoken invitation in your own words. The reader sets the pace.
+
+Locations are given on demand, never narrated: when the reader asks where something lives, name the section. Anchors belong to the recap alone — mid-narrative they are noise the reader's eye learns to skip.
 
 ### 5. Sidebars and detours
 
@@ -106,4 +107,4 @@ The ceiling: any single message — stop, sidebar answer, detour chunk, the map,
 | "Three sections in one message is more efficient." | The wall of text is the disease this skill treats. Efficiency is understood concepts per message, not words. |
 | "The map is close enough from a skim." | Declared skips and instant detours are promises made on having read everything. Skim first and the map gets revised under the reader's feet. |
 | "That question is beyond this briefing's scope." | The reader decides scope. A deferred answer costs them a second session and a full re-read. |
-| "Skip the anchors; the flow reads better." | The reader's task lives in the original document. Without anchors the recap points at nothing. |
+| "Cite the section as you narrate, so it's traceable." | Mid-narrative anchors are noise the reader skips. They ask where something lives when they need it — answer then; the recap carries the full anchor map. |

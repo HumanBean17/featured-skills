@@ -55,7 +55,7 @@ Before any output, read all of it — chunk by chunk for long documents, fetched
 
 ### 2. Intake
 
-Learn, in the reader's own words: what their task needs from this document, how much background they have, how deep they want to go, how much time they have. Ask through the structured question tool when you have one (AskUserQuestion in Claude Code — it takes up to four questions, exactly these); with no such tool, ask in plain conversation. If they wave it off ("just explain it"), infer defaults from the document and their phrasing, state the defaults in one line, and move on. Done when task, familiarity and depth are known or defaulted.
+Learn, in the reader's own words: what their task needs from this document, how much background they have, how deep they want to go, how much time they have. Ask through the structured question tool when you have one (`AskUserQuestion` (or `ask_user_question` and etc in your harness) — it takes up to four questions, exactly these); with no such tool, ask in plain conversation. If they wave it off ("just explain it"), infer defaults from the document and their phrasing, state the defaults in one line, and move on. Done when task, familiarity and depth are known or defaulted.
 
 ### 3. The map
 

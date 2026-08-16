@@ -1,6 +1,6 @@
 ---
 name: briefing
-description: Guided walkthrough of a document the user needs to understand — contract, law, financial statement, spec, RFC, paper, policy, any text. Reads the whole document, learns the reader's task, presents a big-picture map with declared skips, then walks one concept per message, answering questions and deep dives in-session, and closes with a TLDR recap anchored back to the document. Use whenever the user shares or references a document (file, link, pasted text) and wants to understand, digest, or be briefed on it — "walk me through this", "explain this contract", "what am I signing", "I need to understand this spec for my task" — even if they just drop a file and ask what it is. Not for one-shot summarize, translate, or extract requests where no dialogue is wanted.
+description: Guided walkthrough of a document the user needs to understand — contract, law, spec, paper, any text. Use whenever the user shares or references a document and wants to understand it, be briefed on it, or have it walked through — "explain this contract", "what am I signing", "what is this file?". Not for one-shot summarize, translate, or extract with no dialogue.
 argument-hint: "[path or URL to the document]"
 ---
 
@@ -55,7 +55,7 @@ Before any output, read all of it — chunk by chunk for long documents, fetched
 
 ### 2. Intake
 
-Learn, conversationally and in the reader's own words: what their task needs from this document, how much background they have, how deep they want to go, how much time they have. You are on a call, not filling a form — one or two natural messages, not four interrogations. If they wave it off ("just explain it"), infer defaults from the document and their phrasing, state the defaults in one line, and move on. Done when task, familiarity and depth are known or defaulted.
+Learn, in the reader's own words: what their task needs from this document, how much background they have, how deep they want to go, how much time they have. Ask through the structured question tool when you have one (`AskUserQuestion` (or `ask_user_question` and etc in your harness) — it takes up to four questions, exactly these); with no such tool, ask in plain conversation. If they wave it off ("just explain it"), infer defaults from the document and their phrasing, state the defaults in one line, and move on. Done when task, familiarity and depth are known or defaulted.
 
 ### 3. The map
 
@@ -69,11 +69,12 @@ Done when every part of the document is either a stop or a declared skip.
 
 ### 4. Walk the stops
 
-One concept per message. Inside a stop: the essence first — what it is, why it exists — then the particulars (mechanics, terms, numbers) as far as the ceiling allows. Carry three things on every stop:
+One concept per message. Inside a stop: the essence first — what it is, why it exists — then the particulars (mechanics, terms, numbers) as far as the ceiling allows. Carry two things on every stop:
 
-- **Anchor** — where it lives in the document (§, page, heading). The reader will work with the original after the call; the anchor is the bridge back.
 - **Progress** — "Stop 2 of 7", so the reader always knows where they are.
-- **Gate** — end every message by inviting the next question or the go-ahead, in your own words. The reader sets the pace.
+- **Gate** — end every message with the gate as a structured question tool call (`AskUserQuestion` (or `ask_user_question` and etc in your harness)): *Next stop* / *Go deeper on this*. One click advances; the reader's free-text answer is their question — they never type "go next" by hand. Only in a harness without such a tool, close with a spoken invitation. The reader sets the pace.
+
+Locations are given on demand, never narrated: when the reader asks where something lives, name the section. Anchors belong to the recap alone — mid-narrative they are noise the reader's eye learns to skip.
 
 ### 5. Sidebars and detours
 
@@ -106,4 +107,4 @@ The ceiling: any single message — stop, sidebar answer, detour chunk, the map,
 | "Three sections in one message is more efficient." | The wall of text is the disease this skill treats. Efficiency is understood concepts per message, not words. |
 | "The map is close enough from a skim." | Declared skips and instant detours are promises made on having read everything. Skim first and the map gets revised under the reader's feet. |
 | "That question is beyond this briefing's scope." | The reader decides scope. A deferred answer costs them a second session and a full re-read. |
-| "Skip the anchors; the flow reads better." | The reader's task lives in the original document. Without anchors the recap points at nothing. |
+| "Cite the section as you narrate, so it's traceable." | Mid-narrative anchors are noise the reader skips. They ask where something lives when they need it — answer then; the recap carries the full anchor map. |

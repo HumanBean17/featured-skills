@@ -12,6 +12,41 @@ You decide what matters and in what order from reading the document itself — t
 
 If the reader asks for a one-shot digest instead of a walkthrough, give the digest and say the briefing is there when they want the full route. A second document the reader drops is context for this briefing, not a second briefing — unless they ask for one.
 
+<HARD-GATE>
+Do not present the map, a stop, or any substantive content from the document until you have read the entire document. Every later promise — honest skips, instant detours — rests on this.
+</HARD-GATE>
+
+## Process flow
+
+```dot
+digraph briefing {
+    "Read entire document" [shape=box];
+    "Intake" [shape=box];
+    "Present the map" [shape=box];
+    "Walk a stop" [shape=box];
+    "Sidebar / detour" [shape=box];
+    "Re-plan out loud" [shape=box];
+    "Reader's reply" [shape=diamond];
+    "Recap (TLDR, then annotated map)" [shape=box];
+    "Briefing ends" [shape=doublecircle];
+
+    "Read entire document" -> "Intake";
+    "Intake" -> "Present the map" [label="task, familiarity, depth known"];
+    "Present the map" -> "Walk a stop" [label="reader says go"];
+    "Walk a stop" -> "Reader's reply";
+    "Reader's reply" -> "Walk a stop" [label="next"];
+    "Reader's reply" -> "Sidebar / detour" [label="a question"];
+    "Sidebar / detour" -> "Walk a stop" [label="answered in-session"];
+    "Sidebar / detour" -> "Re-plan out loud" [label="detour outgrew the map"];
+    "Reader's reply" -> "Re-plan out loud" [label="map misfit revealed"];
+    "Re-plan out loud" -> "Walk a stop" [label="new map approved, or veto keeps the old one"];
+    "Reader's reply" -> "Recap (TLDR, then annotated map)" [label="last stop / reader calls it"];
+    "Recap (TLDR, then annotated map)" -> "Briefing ends";
+}
+```
+
+**The terminal state is the recap delivered** — from there the reader works with the document alone. A one-shot digest request exits the flow from anywhere (see Role).
+
 ## The call
 
 ### 1. Read the whole document first

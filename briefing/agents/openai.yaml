@@ -1,0 +1,5 @@
+interface:
+  display_name: "Briefing"
+  short_description: "Walk through a document on a call"
+policy:
+  allow_implicit_invocation: true

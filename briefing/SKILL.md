@@ -72,7 +72,7 @@ Done when every part of the document is either a stop or a declared skip.
 One concept per message. Inside a stop: the essence first — what it is, why it exists — then the particulars (mechanics, terms, numbers) as far as the ceiling allows. Carry two things on every stop:
 
 - **Progress** — "Stop 2 of 7", so the reader always knows where they are.
-- **Gate** — end every message with the gate as a structured question tool call (`AskUserQuestion` (or `ask_user_question` and etc in your harness)): *Next stop* / *Go deeper on this* / *Visit a skipped part* (when the map has skips) / *Wrap up*. One click advances; the reader's free-text answer is their question — they never type "go next" by hand. Only in a harness without such a tool, close with a spoken invitation. The reader sets the pace.
+- **Gate** — end every message with the gate as a structured question tool call (`AskUserQuestion` (or `ask_user_question` and etc in your harness)): *Next stop* / *Go deeper on this*. One click advances; the reader's free-text answer is their question — they never type "go next" by hand. Only in a harness without such a tool, close with a spoken invitation. The reader sets the pace.
 
 Locations are given on demand, never narrated: when the reader asks where something lives, name the section. Anchors belong to the recap alone — mid-narrative they are noise the reader's eye learns to skip.
 

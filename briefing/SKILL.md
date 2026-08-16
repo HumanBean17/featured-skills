@@ -1,6 +1,6 @@
 ---
 name: briefing
-description: Guided walkthrough of a document the user needs to understand — contract, law, financial statement, spec, RFC, paper, policy, any text. Reads the whole document, learns the reader's task, presents a big-picture map with declared skips, then walks one concept per message, answering questions and deep dives in-session, and closes with a TLDR recap anchored back to the document. Use whenever the user shares or references a document (file, link, pasted text) and wants to understand, digest, or be briefed on it — "walk me through this", "explain this contract", "what am I signing", "I need to understand this spec for my task" — even if they just drop a file and ask what it is. Not for one-shot summarize, translate, or extract requests where no dialogue is wanted.
+description: Guided walkthrough of a document the user needs to understand — contract, law, spec, paper, any text. Use whenever the user shares or references a document and wants to understand it, be briefed on it, or have it walked through — "explain this contract", "what am I signing", "what is this file?". Not for one-shot summarize, translate, or extract with no dialogue.
 argument-hint: "[path or URL to the document]"
 ---
 

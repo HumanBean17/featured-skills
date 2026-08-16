@@ -1,5 +1,5 @@
 ---
-name: briefing
+name: brief-me
 description: Guided walkthrough of a document the user needs to understand — contract, law, spec, paper, any text. Use whenever the user shares or references a document and wants to understand it, be briefed on it, or have it walked through — "explain this contract", "what am I signing", "what is this file?". Not for one-shot summarize, translate, or extract with no dialogue.
 argument-hint: "[path or URL to the document]"
 ---

@@ -12,6 +12,16 @@ You decide what matters and in what order from reading the document itself — t
 
 If the reader asks for a one-shot digest instead of a walkthrough, give the digest and say the briefing is there when they want the full route. A second document the reader drops is context for this briefing, not a second briefing — unless they ask for one.
 
+## Two voices
+
+The briefing speaks with two voices, never mixed.
+
+**Document voice** — everything the document says, re-narrated for the reader. It is grounded: composed from a passage you re-opened, never one you merely remember.
+
+**Your own voice** — context, guesses, judgment — enters only when the reader asks for it, and only under its label: *"the doc doesn't say; my guess is…"*.
+
+Silence is an answer. "The doc doesn't say" is a finding the reader acts on: it routes the question to the document's author. An invented answer is worse than none — the reader trusts the briefing exactly because it never goes beyond the page unmarked.
+
 <HARD-GATE>
 Do not present the map, a stop, or any substantive content from the document until you have read the entire document. Every later promise — honest skips, instant detours — rests on this.
 </HARD-GATE>
@@ -69,16 +79,23 @@ Done when every part of the document is either a stop or a declared skip.
 
 ### 4. Walk the stops
 
-One concept per message. Inside a stop: the essence first — what it is, why it exists — then the particulars (mechanics, terms, numbers) as far as the ceiling allows. Carry two things on every stop:
+One concept per message. Inside a stop: the essence first — what it is, and why it exists as the document gives it (silent on why? say so, don't invent) — then the particulars (mechanics, terms, numbers) as far as the ceiling allows. Carry two things on every stop:
 
 - **Progress** — "Stop 2 of 7", so the reader always knows where they are.
 - **Gate** — end every message with the gate as a structured question tool call (`AskUserQuestion` (or `ask_user_question` and etc in your harness)): *Next stop* / *Go deeper on this*. One click advances; the reader's free-text answer is their question — they never type "go next" by hand. Only in a harness without such a tool, close with a spoken invitation. The reader sets the pace.
 
-Locations are given on demand, never narrated: when the reader asks where something lives, name the section. Anchors belong to the recap alone — mid-narrative they are noise the reader's eye learns to skip.
+Locations are given on demand, never narrated: when the reader asks where something lives, name the section. Anchors belong to answers and to the recap alone — mid-narrative they are noise the reader's eye learns to skip.
 
 ### 5. Sidebars and detours
 
-Answer every question now. An answer deferred — "out of scope for this briefing", "ask me after" — forces the reader into a second session and a full re-read, the exact failure this skill exists to prevent.
+Answer every question now — silence included. An answer deferred — "out of scope for this briefing", "ask me after" — forces the reader into a second session and a full re-read, the exact failure this skill exists to prevent. And "the doc doesn't say", delivered now, is an answer; an invented one, delivered now, is a lie.
+
+Every question runs the same protocol:
+
+1. **Re-open.** Search the document for the relevant passage. Never answer from recall.
+2. **Answer from the passage**, ending with its anchor — the section the answer lives in.
+3. **Nothing found → say so.** "The doc doesn't say" — plus, when it's clear, where to take the question instead (usually the document's author).
+4. **A guess only on push**, and only under the two-voices label, never blended into the answer.
 
 A short question gets a short answer, then back to the current stop. A deep question ("what does §12.4 actually rest on?") starts a detour: the same craft as a stop — consecutive chunks under the ceiling, each ending with its own gate — for as long as the reader pulls the thread. A detour that runs several exchanges is telling you the map underweights something: fold it in.
 
@@ -108,3 +125,5 @@ The ceiling: any single message — stop, sidebar answer, detour chunk, the map,
 | "The map is close enough from a skim." | Declared skips and instant detours are promises made on having read everything. Skim first and the map gets revised under the reader's feet. |
 | "That question is beyond this briefing's scope." | The reader decides scope. A deferred answer costs them a second session and a full re-read. |
 | "Cite the section as you narrate, so it's traceable." | Mid-narrative anchors are noise the reader skips. They ask where something lives when they need it — answer then; the recap carries the full anchor map. |
+| "The reader needs an answer, not a shrug." | An invented answer arms them with a falsehood. "The doc doesn't say" is the answer — and the cue to take the question to the author. |
+| "I remember what that section said." | Recall is where invention breeds. Re-open the passage; answer from the page. |

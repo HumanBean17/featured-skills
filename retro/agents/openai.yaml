@@ -1,0 +1,5 @@
+interface:
+  display_name: "Retro"
+  short_description: "Reflect the session's friction into the backlog"
+policy:
+  allow_implicit_invocation: false

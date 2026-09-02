@@ -1,6 +1,6 @@
 ---
 name: self-verify
-description: Self-verification as the native final stage of any task — before claiming work done, restate the consumer's test as checkable criteria and close each with executed evidence (run the search, substitute the answer back, run the tests), fixing gaps before reporting. Use whenever about to complete, deliver, or hand over any piece of work, however small — emails, document edits, code changes, calculations, answers to questions. Especially when the work feels obviously done; that is where local completion hides.
+description: Self-verification as the native final stage of any task — before claiming work done, restate the consumer's test as checkable criteria and close each with executed evidence, fixing gaps before reporting. Use whenever about to complete, deliver, or hand over any piece of work, however small — emails, document edits, code changes, calculations, answers to questions.
 ---
 
 # Self-verify

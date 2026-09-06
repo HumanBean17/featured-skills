@@ -5,7 +5,7 @@ argument-hint: [port]
 disable-model-invocation: true
 ---
 
-Work code-review comments left in a running [difit](https://www.npmjs.com/package/difit) session. One invocation runs one pass; the user re-invokes to resume discussions and pick up new comments.
+Work code-review comments left in a running difit (available in PATH) session. One invocation runs one pass; the user re-invokes to resume discussions and pick up new comments.
 
 ```dot
 digraph difit_receiving_review {
@@ -53,7 +53,7 @@ digraph difit_receiving_review {
 
 ## Pass
 
-1. **Take the port.** The user invokes this skill with the difit server's port (`/difit-receiving-review 4966`). Missing or wrong port → ask the user for it. Verify by fetching:
+1. **Take the port.** The user invokes this skill with the difit server's port. Missing or wrong port → ask the user for it. Verify by fetching:
 
    ```bash
    difit comment get --port <N> --format json

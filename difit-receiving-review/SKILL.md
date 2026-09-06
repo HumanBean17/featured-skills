@@ -7,6 +7,25 @@ disable-model-invocation: true
 
 Work code-review comments left in a running [difit](https://www.npmjs.com/package/difit) session. One invocation runs one pass; the user re-invokes to resume discussions and pick up new comments.
 
+```mermaid
+flowchart TD
+    S([/difit-receiving-review port]) --> V{port given & fetch answers?}
+    V -- no --> A[ask user for port] --> V
+    V -- down --> X([report & stop])
+    V -- yes --> T[Triage every thread]
+    T --> AMB{ambiguous threads?}
+    AMB -- yes --> Q[batched questions to user in chat] --> TQ[classify from answers]
+    TQ --> R
+    AMB -- no --> R[Reply pass: post in every resume / question / discussion thread]
+    R --> ACT[Action pass, per thread in order]
+    ACT --> W{comment holds up against the code?}
+    W -- no --> P[push back in thread, with evidence] --> NXT
+    W -- yes --> F[change, verify, stage only] --> O[post outcome in thread] --> NXT
+    NXT{next action thread?} -- yes --> W
+    NXT -- no --> B([brief report: flags only · stop · await re-invoke])
+    B -. user replies in difit, re-invokes .-> S
+```
+
 ## Pass
 
 1. **Take the port.** The user invokes this skill with the difit server's port (`/difit-receiving-review 4966`). Missing or wrong port → ask the user for it. Verify by fetching:

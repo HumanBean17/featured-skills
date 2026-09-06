@@ -7,23 +7,48 @@ disable-model-invocation: true
 
 Work code-review comments left in a running [difit](https://www.npmjs.com/package/difit) session. One invocation runs one pass; the user re-invokes to resume discussions and pick up new comments.
 
-```mermaid
-flowchart TD
-    S([/difit-receiving-review port]) --> V{port given & fetch answers?}
-    V -- no --> A[ask user for port] --> V
-    V -- down --> X([report & stop])
-    V -- yes --> T[Triage every thread]
-    T --> AMB{ambiguous threads?}
-    AMB -- yes --> Q[batched questions to user in chat] --> TQ[classify from answers]
-    TQ --> R
-    AMB -- no --> R[Reply pass: post in every resume / question / discussion thread]
-    R --> ACT[Action pass, per thread in order]
-    ACT --> W{comment holds up against the code?}
-    W -- no --> P[push back in thread, with evidence] --> NXT
-    W -- yes --> F[change, verify, stage only] --> O[post outcome in thread] --> NXT
-    NXT{next action thread?} -- yes --> W
-    NXT -- no --> B([brief report: flags only · stop · await re-invoke])
-    B -. user replies in difit, re-invokes .-> S
+```dot
+digraph difit_receiving_review {
+  rankdir=TB;
+  node [shape=box];
+
+  start    [shape=oval, label="/difit-receiving-review <port>"];
+  askPort  [label="ask user for port"];
+  fetch    [shape=diamond, label="port given &\nfetch answers?"];
+  stopDown [shape=oval, label="report & stop"];
+
+  triage   [label="triage every thread"];
+  ambig    [shape=diamond, label="ambiguous\nthreads?"];
+  askChat  [label="batched questions\nto user in chat"];
+  replies  [label="reply pass: post in every\nresume / question /\ndiscussion thread"];
+
+  actions  [label="action pass,\nper thread in order"];
+  holdsUp  [shape=diamond, label="comment holds up\nagainst the code?"];
+  pushBack [label="push back in thread,\nwith evidence"];
+  fix      [label="change, verify,\nstage only"];
+  outcome  [label="post outcome in thread"];
+  next     [shape=diamond, label="next action\nthread?"];
+  report   [shape=oval, label="brief report: flags only\nstop · await re-invoke"];
+
+  start -> fetch;
+  askPort -> fetch;
+  fetch -> askPort [label="no"];
+  fetch -> stopDown [label="down"];
+  fetch -> triage [label="yes"];
+  triage -> ambig;
+  ambig -> askChat [label="yes"];
+  askChat -> replies;
+  ambig -> replies [label="no"];
+  replies -> actions;
+  actions -> holdsUp;
+  holdsUp -> pushBack [label="no"];
+  pushBack -> next;
+  holdsUp -> fix [label="yes"];
+  fix -> outcome -> next;
+  next -> holdsUp [label="yes"];
+  next -> report [label="no"];
+  report -> start [style=dashed, label="user replies in difit,\nre-invokes"];
+}
 ```
 
 ## Pass

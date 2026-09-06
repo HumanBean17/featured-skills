@@ -1,6 +1,6 @@
 # featured-skills
 
-Curated Claude Code skills.
+Curated agentic skills.
 
 ## Principle
 

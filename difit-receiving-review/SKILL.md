@@ -1,6 +1,7 @@
 ---
 name: difit-receiving-review
 description: Receive code-review comments from a running difit server, answer them in the difit threads, and act on them.
+argument-hint: [port]
 disable-model-invocation: true
 ---
 
@@ -8,16 +9,13 @@ Work code-review comments left in a running [difit](https://www.npmjs.com/packag
 
 ## Pass
 
-1. **Discover the server.** Find the difit process and its port:
+1. **Take the port.** The user invokes this skill with the difit server's port (`/difit-receiving-review 4966`). Missing or wrong port → ask the user for it. Verify by fetching:
 
    ```bash
-   pid=$(ps aux | grep -E '[d]ifit' | awk '{print $2}' | head -1)
-   lsof -nP -iTCP -sTCP:LISTEN -a -p "$pid"
+   difit comment get --port <N> --format json
    ```
 
-   No process → tell the user to start `difit` and stop. Multiple ports → ask which.
-
-   Done when you have a port that answers `difit comment get --port <N> --format json`.
+   Fetch fails → the port is wrong or the server is down; tell the user and stop.
 
 2. **Fetch and triage every thread.** The fetch returns `{"threads": [...]}` (schema below). Classify each thread by its message history and the intent of the newest **user** message (author ≠ `agent`):
 

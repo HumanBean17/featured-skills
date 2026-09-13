@@ -12,6 +12,7 @@ Hardened: every skill is standalone, not part of any framework. Copy a folder, g
 
 - **brief-me** — guided walkthrough of a document you need to understand: contract, law, spec, paper.
 - **difit-receiving-review** — receive code-review comments from a running [difit](https://github.com/yoshiko-pg/difit) server, answer them in the difit threads, act on them.
+- **hold** — park the agent: it acknowledges, inventories the conversation's active skills, and does nothing until an explicit go-phrase releases it.
 - **retro** — end-of-session reflection; surfaces the session's friction as one-line proposals in a reflections backlog.
 - **self-verify** — final stage of any task: restate the consumer's test as checkable criteria, close each with executed evidence before claiming done.
 

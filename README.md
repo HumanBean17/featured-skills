@@ -13,6 +13,7 @@ Hardened: every skill is standalone, not part of any framework. Copy a folder, g
 - **brief-me** — guided walkthrough of a document you need to understand: contract, law, spec, paper.
 - **difit-giving-review** — run a code review and deliver it as anchored threads in a launched [difit](https://github.com/yoshiko-pg/difit) session; owns the delivery format, not the reviewing.
 - **difit-receiving-review** — receive code-review comments from a running [difit](https://github.com/yoshiko-pg/difit) server, answer them in the difit threads, act on them.
+- **git-review-ladder** — re-cut a branch's net diff into a few commits for rung-by-rung human review: one per intent with its tests and docs, on top of one proven prep commit for behavior-preserving noise; rewrites your own branch in place, builds a side branch for someone else's.
 - **hold** — park the agent: it acknowledges, inventories the conversation's active skills, and does nothing until an explicit go-phrase releases it.
 - **retro** — end-of-session reflection; surfaces the session's friction as one-line proposals in a reflections backlog.
 - **self-verify** — final stage of any task: restate the consumer's test as checkable criteria, close each with executed evidence before claiming done.

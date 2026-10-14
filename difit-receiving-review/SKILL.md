@@ -1,7 +1,7 @@
 ---
 name: difit-receiving-review
-description: Receive code-review comments from a running difit server, answer them in the difit threads, and act on them. In a difit --ladder session each fix lands inside its rung (fixup + autosquash); otherwise fixes stay staged.
-argument-hint: [port]
+description: Receive code-review comments from a running difit server, answer them in the difit threads, and act on them.
+argument-hint: '[port]'
 disable-model-invocation: true
 ---
 

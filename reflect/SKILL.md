@@ -1,5 +1,5 @@
 ---
-name: retro
+name: reflect
 description: End-of-session reflection — surface the session's friction as one-line proposals appended to the reflections backlog.
 argument-hint: "[focus area]"
 disable-model-invocation: true

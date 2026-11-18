@@ -16,7 +16,7 @@ Hardened: every skill is standalone, not part of any framework. Copy a folder, g
 - **git-review-ladder** — re-cut a branch's net diff into a few commits for rung-by-rung human review: one per intent with its tests and docs, on top of one proven prep commit for behavior-preserving noise; rewrites your own branch in place, builds a side branch for someone else's.
 - **hold** — park the agent: it acknowledges, inventories the conversation's active skills, and does nothing until an explicit go-phrase releases it.
 - **review-loop** — review a branch rung by rung to the end: cuts it into a review ladder once, opens one `difit --ladder` session, and answers each Submit with a difit-receiving-review pass whose fixes land inside their rungs, until Finish. Composes git-review-ladder and difit-receiving-review (both needed) and a difit with `--ladder` ([fork](https://github.com/HumanBean17/difit)).
-- **retro** — end-of-session reflection; surfaces the session's friction as one-line proposals in a reflections backlog.
+- **reflect** — end-of-session reflection; surfaces the session's friction as one-line proposals in a reflections backlog.
 - **self-verify** — final stage of any task: restate the consumer's test as checkable criteria, close each with executed evidence before claiming done.
 
 ### From [mattpocock/skills](https://github.com/mattpocock/skills), as-is
